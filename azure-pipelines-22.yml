@@ -1,28 +1,26 @@
-# yaml pipeline for java project
-
+#yaml pipeline
 trigger:
   none
 
 pool:
   vmImage: ubuntu-latest
 
-#s2                          j2  steps:
+
+
+#s2......................j2....s
 stages:
-  - stage:
-    displayName: 'mavenpackage'
-    jobs:
-      - job: package
-        steps: 
-            - task: Maven@4
-              inputs:
-                mavenPomFile: 'pom.xml'
-                publishJUnitResults: true
-                testResultsFiles: '**/surefire-reports/TEST-*.xml'
-                javaHomeOption: 'JDKVersion'
-                mavenVersionOption: 'Default'
-                mavenAuthenticateFeed: false
-                effectivePomSkip: false
-                sonarQubeRunAnalysis: false
-
-
-
+   stage:
+   displayname: "maven package"
+   jobs:
+        job:package
+        step:
+          - task: Maven@4
+            inputs:
+              mavenPomFile: 'pom.xml'
+              publishJUnitResults: true
+              testResultsFiles: '**/surefire-reports/TEST-*.xml'
+              javaHomeOption: 'JDKVersion'
+              mavenVersionOption: 'Default'
+              mavenAuthenticateFeed: false
+              effectivePomSkip: false
+              sonarQubeRunAnalysis: false
