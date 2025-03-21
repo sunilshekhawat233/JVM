@@ -12,8 +12,7 @@ stages:
     displayName: 'mavenpackage'
     jobs:
       - job: package
-        steps:
-          settings: 
+        steps: 
             - task: Maven@4
               inputs:
                 mavenPomFile: 'pom.xml'
